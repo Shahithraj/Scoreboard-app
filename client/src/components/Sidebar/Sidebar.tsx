@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./sidebar.module.css";
+import styles from "./Sidebar.module.css";
 import {
   ChevronDown,
   ChevronRight,
