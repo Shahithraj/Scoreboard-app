@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getTeamLeaderboard } from "../../api/leaderboard";
 import { Users } from "lucide-react";
-import styles from "./dashboard.module.css";
+import styles from "./DashBoard.module.css";
 import Widget from "../../components/Widgets/Widget";
 
 interface TeamLeaderboardEntry {
@@ -9,7 +9,7 @@ interface TeamLeaderboardEntry {
   totalPoints: number;
 }
 
-const Dashboard: React.FC = () => {
+const DashBoard: React.FC = () => {
   const [teams, setTeams] = useState<TeamLeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -53,4 +53,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default DashBoard;
