@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.tableHeader > div {
+  flex: 0.5;
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.table th {
+  background-color: #f7f7f7;
+  font-weight: 600;
+  color: #333;
+  user-select: none;
+}
+
+.table tr:hover {
+  background-color: #fafafa;
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+.sortArrow {
+  margin-left: 6px;
+  font-size: 10px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

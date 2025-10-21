@@ -1,0 +1,52 @@
+.widgetCard {
+  background: var(--color-bg, #fff);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  padding: 20px 24px;
+  cursor: pointer;
+  flex: 1;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.widgetCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.widgetContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-muted, #4b5563);
+}
+
+.value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-text-main, #111827);
+}
+
+.iconContainer {
+  background-color: var(--color-primary, #2563eb);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
+  flex-shrink: 0;
+}

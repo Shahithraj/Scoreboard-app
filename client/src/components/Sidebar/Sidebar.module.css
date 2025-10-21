@@ -1,0 +1,108 @@
+.sidebar {
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  color: #111827;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title */
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: left;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Section wrapper */
+.section {
+  margin-bottom: 0.5rem;
+}
+
+/* Button or Link */
+.itemButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: none;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.itemButton:hover {
+  background-color: #f3f4f6;
+  color: #1d4ed8;
+}
+
+/* Icon beside text */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+  color: #6b7280;
+}
+
+/* Label inside button */
+.itemLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Submenu container */
+.subList {
+  margin-left: 1.8rem;
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* Submenu item link */
+.subItem {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #4b5563;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.subItem:hover {
+  background-color: #e0edff;
+  color: #1d4ed8;
+}
+
+/* Active styles */
+.active,
+.activeSub {
+  background-color: #e0edff;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+/* Optional scrollbar behavior if list is long */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 3px;
+}
