@@ -53,16 +53,18 @@ const Sidebar = () => {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const location = useLocation();
 
+  // ✅ Accordion behavior: only one section open at a time
   const toggleSection = (title: string) => {
     setOpenSection(openSection === title ? null : title);
   };
 
-  // Auto-expand the correct section based on current route
+  // ✅ Auto-open section based on route
   useEffect(() => {
     const parentItem = sidebarItems.find((item) =>
       item.subItems?.some((sub) => location.pathname.startsWith(sub.path))
     );
     if (parentItem) setOpenSection(parentItem.title);
+    else setOpenSection(null);
   }, [location.pathname]);
 
   return (
@@ -71,9 +73,10 @@ const Sidebar = () => {
 
       {sidebarItems.map((item) => {
         const isOpen = openSection === item.title;
-        const isActive =
-          location.pathname === item.path ||
-          item.subItems?.some((sub) => location.pathname.startsWith(sub.path));
+        const isActiveSub =
+          item.subItems?.some((sub) =>
+            location.pathname.startsWith(sub.path)
+          ) ?? false;
 
         return (
           <div key={item.title} className={styles.section}>
@@ -83,7 +86,7 @@ const Sidebar = () => {
                   onClick={() => toggleSection(item.title)}
                   aria-expanded={isOpen}
                   className={`${styles.itemButton} ${
-                    isActive ? styles.active : ""
+                    isActiveSub ? styles.active : ""
                   }`}
                 >
                   <span className={styles.itemLabel}>

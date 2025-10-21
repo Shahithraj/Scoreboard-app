@@ -6,6 +6,7 @@
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 /* Title */
@@ -13,57 +14,65 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: #0f172a;
-  text-align: left;
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-/* Section wrapper */
+/* Section container */
 .section {
   margin-bottom: 0.5rem;
 }
 
-/* Button or Link */
+/* Common button/link styling */
 .itemButton {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px 14px;
+  gap: 0.5rem;
+  padding: 0.7rem 0.8rem;
   border: none;
-  border-radius: 10px;
   background: none;
   color: #374151;
+  cursor: pointer;
+  border-radius: 10px;
   font-size: 0.95rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
+  text-align: left;
+  transition: background 0.25s ease, color 0.25s ease;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
+/* Expandable buttons (Create, Leaderboard) */
+.section button.itemButton {
+  justify-content: space-between;
+}
+
+.itemLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  color: #6b7280;
+}
+
+/* Hover effect */
 .itemButton:hover {
   background-color: #f3f4f6;
   color: #1d4ed8;
 }
 
-/* Icon beside text */
-.icon {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 8px;
-  color: #6b7280;
-}
-
-/* Label inside button */
-.itemLabel {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Submenu container */
+/* Submenu list */
 .subList {
   margin-left: 1.8rem;
   margin-top: 0.4rem;
@@ -72,37 +81,51 @@
   gap: 0.3rem;
 }
 
-/* Submenu item link */
+/* Submenu item links */
 .subItem {
   display: block;
-  padding: 8px 12px;
+  padding: 0.45rem 0.8rem;
   border-radius: 8px;
   color: #4b5563;
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .subItem:hover {
+  background-color: #f3f4f6;
+  color: #1d4ed8;
+}
+
+/* Active state for both main and sub items */
+.active {
   background-color: #e0edff;
   color: #1d4ed8;
 }
 
-/* Active styles */
-.active,
 .activeSub {
   background-color: #e0edff;
   color: #1d4ed8;
   font-weight: 600;
 }
 
-/* Optional scrollbar behavior if list is long */
-.sidebar::-webkit-scrollbar {
-  width: 6px;
+/* Expanded parent (Create/Leaderboard open) */
+.section button[aria-expanded="true"] {
+  background-color: #e0edff;
+  color: #1d4ed8;
 }
 
-.sidebar::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1;
-  border-radius: 3px;
+/* Hover priority fix for active items */
+.itemButton.active:hover,
+.subItem.activeSub:hover {
+  background-color: #dbeafe;
+  color: #1e3a8a;
+}
+
+/* Focus accessibility */
+.itemButton:focus-visible,
+.subItem:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
 }
