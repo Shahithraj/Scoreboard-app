@@ -16,9 +16,4 @@ const TeamSchema = new Schema<ITeam>(
   { timestamps: true }
 );
 
-TeamSchema.index(
-  { name: 1 },
-  { unique: true, collation: { locale: "en", strength: 2 } }
-);
-
 export const Team = model<ITeam>("Team", TeamSchema);
