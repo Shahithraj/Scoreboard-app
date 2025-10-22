@@ -21,12 +21,17 @@ const CreateTeamForm = () => {
   ];
 
   const handleSubmit = async (data: Record<string, string | string[]>) => {
-    const name = Array.isArray(data.name) ? data.name[0] : data.name; // 🧠 safely handle both
-    if (!name.trim()) return alert("Enter a valid team name");
+    try {
+      const name = Array.isArray(data.name) ? data.name[0] : data.name; // 🧠 safely handle both
+      if (!name.trim()) return alert("Enter a valid team name");
 
-    await addTeam({ name });
-    alert("✅ Team created successfully!");
-    setTeamName("");
+      await addTeam({ name });
+      alert("✅ Team created successfully!");
+      setTeamName("");
+    } catch (err) {
+      console.log(err);
+      alert("✅ Something went wrong!");
+    }
   };
 
   return (
